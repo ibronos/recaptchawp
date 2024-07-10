@@ -20,7 +20,7 @@ class RecaptchawpSettings {
     function recaptchawp_settings_init() {
 
         add_settings_section (
-            'recaptchawp_section_developers',
+            'recaptchawp_section',
             '', 
             array($this, 'recaptchawp_section_callback'),
             'recaptchawp'
@@ -32,7 +32,7 @@ class RecaptchawpSettings {
             'Site Key',
             array( $this, 'recaptchawp_sitekey_cb' ),
             'recaptchawp',
-            'recaptchawp_section_developers',
+            'recaptchawp_section',
             array(
                 'label_for'         => 'recaptchawp_sitekey',
                 'class'             => 'recaptchawp'
@@ -44,15 +44,28 @@ class RecaptchawpSettings {
             'Secret Key',
             array( $this, 'recaptchawp_secretkey_cb' ),
             'recaptchawp',
-            'recaptchawp_section_developers',
+            'recaptchawp_section',
             array(
                 'label_for'         => 'recaptchawp_secretkey',
                 'class'             => 'recaptchawp'
             )
         );
 
+        add_settings_field(
+            'recaptchawp_showon', 
+            'Show Recaptcha On:',
+            array( $this, 'recaptchawp_showon_cb' ),
+            'recaptchawp',
+            'recaptchawp_section',
+            array(
+                'label_for'         => 'recaptchawp_showon',
+                'class'             => 'recaptchawp'
+            )
+        );
+
         register_setting( 'recaptchawp', 'recaptchawp_sitekey' );
         register_setting( 'recaptchawp', 'recaptchawp_secretkey' );
+        register_setting( 'recaptchawp', 'recaptchawp_showon' );
       
     }
 
@@ -87,6 +100,29 @@ class RecaptchawpSettings {
         <?php
     }
 
+    function recaptchawp_showon_cb( $args ) {
+        $options = get_option( 'recaptchawp_showon' );
+
+        //value and label
+        $arrCheckbox = [
+            "login" => "Login",
+            "woocheckout" => "Woocommerce Checkout"
+        ];
+
+        foreach( $arrCheckbox as $key => $value ):
+        ?>
+            <input 
+                type="checkbox" id="<?= $key; ?>" 
+                name="recaptchawp_showon[]" 
+                value="<?php echo $key; ?>"  
+                <?php if ( isset($options) && !empty($options) ) { checked(in_array( $key, $options ), 1); } ?> 
+            />
+            <label for="<?= $key; ?>"><?= $value?></label>            
+            <br/>
+        <?php
+        endforeach;
+
+    }
 
     function recaptchawp_options_page_html() {
         // check user capabilities
