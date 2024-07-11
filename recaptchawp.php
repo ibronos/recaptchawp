@@ -9,7 +9,7 @@
  * @wordpress-plugin
  * Plugin Name: Recaptchawp
  * Plugin URI:  https://github.com/ibronos/recaptchawp
- * Description: WordPress login recaptcha plugin.
+ * Description: WordPress recaptcha plugin.
  * Version:     1.0.0
  * Author:      isaidi
  * Author URI:  https://isaidi.vercel.app
@@ -26,8 +26,10 @@ function autoload_files() {
 
 	// add the list of files to load here.
 	$files = array(
+		'assets/recaptcha-script.php',
 		'admin/settings.php',
-		'template/adminlogin.php'
+		'templates/adminlogin.php',
+		'templates/comment.php'
 	);
 
 	foreach ( $files as $file ) {

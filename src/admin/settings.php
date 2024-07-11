@@ -106,7 +106,7 @@ class RecaptchawpSettings {
         //value and label
         $arrCheckbox = [
             "adminlogin" => "Admin Login",
-            "woocheckout" => "Woocommerce Checkout"
+            "comment" => "Comment"
         ];
 
         foreach( $arrCheckbox as $key => $value ):

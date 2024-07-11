@@ -19,20 +19,8 @@ class AdminLogin {
     }
 
     function login_field(){
-        
         $sitekey = get_option( 'recaptchawp_sitekey' );
         echo '<p><div class="g-recaptcha" data-sitekey="'. $sitekey  .'"></div></p> <br>';
-
-        wp_register_script( 'reCaptcha', 'https://www.google.com/recaptcha/api.js', null, null, true );
-        wp_enqueue_script('reCaptcha');
-    
-        function make_script_async( $tag, $handle, $src ){
-        if ( 'reCaptcha' != $handle ) {
-            return $tag;
-        }
-            return str_replace( '<script', '<script async defer', $tag );
-        }
-        add_filter( 'script_loader_tag', 'make_script_async', 10, 3 );
     }
 
     function captcha_login_check($user, $password) {
