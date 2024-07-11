@@ -72,7 +72,7 @@ class RecaptchawpSettings {
     function recaptchawp_section_callback( $args ) {
         ?>
         <p id="<?php echo esc_attr( $args['id'] ); ?>">
-            <?php esc_html_e( 'Add Google Recaptcha Site key and Secret key below.', 'recaptcha' ); ?>
+            <?php esc_html_e( 'Add Google Recaptcha V2 Site key and Secret key below.', 'recaptcha' ); ?>
         </p>
         <?php
     }
@@ -105,7 +105,7 @@ class RecaptchawpSettings {
 
         //value and label
         $arrCheckbox = [
-            "login" => "Login",
+            "adminlogin" => "Admin Login",
             "woocheckout" => "Woocommerce Checkout"
         ];
 

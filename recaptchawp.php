@@ -26,7 +26,8 @@ function autoload_files() {
 
 	// add the list of files to load here.
 	$files = array(
-		'admin/settings.php'
+		'admin/settings.php',
+		'template/adminlogin.php'
 	);
 
 	foreach ( $files as $file ) {
