@@ -28,6 +28,7 @@ function autoload_files() {
 	$files = array(
 		'assets/recaptcha-script.php',
 		'admin/settings.php',
+		'admin/about.php',
 		'templates/adminlogin.php',
 		'templates/comment.php'
 	);
