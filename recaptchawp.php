@@ -13,7 +13,7 @@
  * Version:     1.0.0
  * Author:      isaidi
  * Author URI:  https://isaidi.vercel.app
- * Text Domain: Captcha Plugin
+ * Text Domain: recaptchawp
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
